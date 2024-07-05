@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Universe Hub</title>
+
+    <!-- Tailwind & DaisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body>
+    <header class="text-center">
+        <h1 class="text-5xl font-semibold">AI Universe Hub</h1>
+        <button id="show-ai" class="bg-[#EB5757] text-white px-5 py-2 rounded-lg my-5">Show AI</button>
+    </header>
     
+
+    <main class="container mx-auto">
+        <hr>
+        <!-- Ai container -->
+        <div id="ai-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <!-- content will be added dynamically -->
+        </div>
+
+    </main>
+
     <script src="js/index.js"></script>
 </body>
+
 </html>
