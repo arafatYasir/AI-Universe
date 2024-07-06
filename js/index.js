@@ -10,9 +10,26 @@ const loadData = async () => {
 }
 
 const displayAiTools = (aiTools) => {
+
+    // showing limited cards
+    if (aiTools.length > 6) {
+        const showAllContainer = document.getElementById("show-all-container");
+        showAllContainer.classList.remove("hidden");
+    } else {
+        const showAllContainer = document.getElementById("show-all-container");
+        showAllContainer.classList.add("hidden");
+    }
+    aiTools = aiTools.slice(0, 6);
+
     const aiContainer = document.getElementById("ai-container");
     for (const ai of aiTools) {
         const div = document.createElement("div");
+        // handling features
+        const features = [];
+        for (let i = 0; i < ai.features.length; i++) {
+            features.push(i + 1 + ". " + ai.features[i]);
+        }
+
         div.innerHTML = `
             <figure class="px-7 pt-7">
                 <img
@@ -27,7 +44,7 @@ const displayAiTools = (aiTools) => {
                 <div>
                     <h3 class="text-lg font-semibold">Features</h3>
                     <div id="features-container">
-
+                        ${features}
                     </div>
                 </div>
                 <div class="card-actions">
@@ -36,19 +53,7 @@ const displayAiTools = (aiTools) => {
             </div>
         `;
         div.classList = "card bg-base-100 w-96 shadow-xl";
+
         aiContainer.appendChild(div);
     }
-
-    // adding features
-    // for (const ai of aiTools) {
-    //     const features = ai.features;
-    //     const featuresContainer = document.getElementById("features-container");
-    //     for (let i = 0; i < features.length; i++) {
-    //         const p = document.createElement("p");
-    //         p.innerHTML = `
-    //         ${i + 1}. ${features[i]};
-    //     `;
-    //         featuresContainer.appendChild(p);
-    //     }
-    // }
 }
